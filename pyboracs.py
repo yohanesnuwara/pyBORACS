@@ -107,29 +107,29 @@ class velmodel:
     self.nz = nz  
   
   def homogeneous(self, c0):
-    vel = np.zeros((nz, nx))
+    vel = np.zeros((self.nz, self.nx))
     vel += c0
     self.vel = vel
     return self.vel
   
   def invadedzone(self, c_invade):
-    self.vel[:, nx // 2 - 15: nx // 2 + 15] = c_invade    
+    self.vel[:, self.nx // 2 - 15: self.nx // 2 + 15] = c_invade    
     return self.vel
 
   def mud(self, c_mud):
-    self.vel[:, nx // 2 - 9: nx // 2 + 9] = c_mud
+    self.vel[:, self.nx // 2 - 9: self.nx // 2 + 9] = c_mud
     return self.vel
 
   def casing(self, c_casing):
-    self.vel[:, nx // 2 - 7: nx // 2 + 7] = c_casing
+    self.vel[:, self.nx // 2 - 7: self.nx // 2 + 7] = c_casing
     return self.vel
 
   def cement(self, c_cement):
-    self.vel[:, nx // 2 - 5: nx // 2 + 5] = c_cement
+    self.vel[:, self.nx // 2 - 5: self.nx // 2 + 5] = c_cement
     return self.vel
 
   def openhole(self, c_drfl):
-    self.vel[:, nx // 2 - 7: nx // 2 + 7] = c_drfl
+    self.vel[:, self.nx // 2 - 7: self.nx // 2 + 7] = c_drfl
     return self.vel
 
   def owc(self, c_oilsat, location):
@@ -137,8 +137,8 @@ class velmodel:
     return self.vel   
   
   def washout(self, c_cement):
-    self.vel[60:80, nx // 2 - 20: nx // 2 - 9] = c_cement
-    self.vel[60:80, nx // 2 + 9: nx // 2 + 20] = c_cement
+    self.vel[60:80, self.nx // 2 - 20: self.nx // 2 - 9] = c_cement
+    self.vel[60:80, self.nx // 2 + 9: self.nx // 2 + 20] = c_cement
     return self.vel
   
   def fracture(self, c_lowvel, location):
