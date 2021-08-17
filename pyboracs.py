@@ -30,6 +30,9 @@ def borehole_ac2d(vpmodel, nx, nz, nt, dx, dt, isx, isz, irx, irz, ist, f0, nop=
   pnew = np.zeros((nz, nx))
   pxx = np.zeros((nz, nx))
   pzz = np.zeros((nz, nx))  
+  
+  # Initialize seismogram
+  seis = np.zeros((len(irx), nt))  
 
   # Source time function Gaussian
   src = np.empty(nt + 1)
@@ -70,7 +73,6 @@ def borehole_ac2d(vpmodel, nx, nz, nt, dx, dt, isx, isz, irx, irz, ist, f0, nop=
 
       # Save seismograms
       ir = np.arange(len(irx))
-      seis = np.zeros((len(irx), nt)) # Initial seismogram as zeros
       seis[ir, it] = p[irz[ir], irx[ir]]
 
   return pnew, seis
