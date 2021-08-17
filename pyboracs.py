@@ -75,9 +75,12 @@ def borehole_ac2d(vpmodel, nx, nz, nt, dx, dt, isx, isz, irx, irz, ist, f0, nop=
 
   return pnew, seis
 
-class velmodel():
+class velmodel:
   """
   Create velocity model of formation and wellbore
+  
+  INPUT:
+  nx, nz: Grid points in x and z  
 
   This class has 10 functions:
   * `homogeneous`: Homogeneous model (no wellbore). c0 is the velocity.
@@ -99,6 +102,10 @@ class velmodel():
     - location is Location of laminae at grid point nz
     - thickness is Thickness of laminae in grid point nz unit
   """
+  def __init__(self, nx, nz):
+    self.nx = nx
+    self.nz = nz  
+  
   def homogeneous(self, c0):
     vel = np.zeros((nz, nx))
     vel += c0
