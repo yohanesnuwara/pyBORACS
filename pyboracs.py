@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def borehole_ac2d(vpmodel, nx, nz, nt, dx, dt, isx, isz, ist, f0, nop=5):
+def borehole_ac2d(vpmodel, nx, nz, nt, dx, dt, isx, isz, irx, irz, ist, f0, nop=5):
   """
   Borehole 2D Acoustic Finite-Difference Simulation
 
@@ -14,6 +14,7 @@ def borehole_ac2d(vpmodel, nx, nz, nt, dx, dt, isx, isz, ist, f0, nop=5):
   dt: Time step
   isx, isz: Source index in x and z
   ist: Shifting of source time function
+  irx, irz: Array of receiver indexes in x and z
   f0: Dominant frequency of source (Hz)
   nop: length of operator (3 for 3-point and 5 for 5-point operator). Default is 5.
 
