@@ -32,6 +32,7 @@ def borehole_ac2d(vpmodel, nx, nz, nt, dx, dt, isx, isz, ist, f0, nop=5):
 
   # Source time function Gaussian
   src = np.empty(nt + 1)
+  T = 1 / f0 # Period
   for it in range(nt):
       src[it] = np.exp(-1.0 / T ** 2 * ((it - ist) * dt) ** 2)
 
