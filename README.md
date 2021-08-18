@@ -8,7 +8,7 @@ Models in PyBORACS include:
 * Wellbore environments (steel casing, mud cake, invaded zone, washout)
 * Oil-water contact
 
-Here is a simulation example based on the following model details:
+Here is a simulation example:
 
 
 
